@@ -4,7 +4,7 @@ import 'package:open_wearable/apps/bablefish/view/bablefish_view.dart';
 import 'package:open_wearable/apps/bablefish/view/share_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/leave_room_dialog.dart';
-import 'package:open_wearable/apps/widgets/apps_page.dart';
+import 'package:open_wearable/widgets/home_page.dart';
 
 class ConversationPage extends StatefulWidget {
   final Room room;
@@ -32,7 +32,7 @@ class _ConversationPageState extends State<ConversationPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (context) => const AppsPage(),
+                    builder: (context) => const HomePage(),
                   ),
                 );
                 Navigator.push(
