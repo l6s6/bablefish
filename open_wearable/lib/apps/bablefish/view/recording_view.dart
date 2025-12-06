@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_wearable/apps/bablefish/view/widgets/recording_tile.dart';
+import 'package:open_wearable/apps/bablefish/model/recording.dart';
 
 class RecordingPage extends StatelessWidget {
   final Recording recording;

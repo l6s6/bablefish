@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_wearable/apps/bablefish/model/recording.dart';
 import 'package:open_wearable/apps/bablefish/view/settings_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/recording_tile.dart';
 

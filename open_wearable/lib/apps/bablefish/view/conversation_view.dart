@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:open_wearable/apps/bablefish/model/room.dart';
+import 'package:open_wearable/apps/bablefish/view/share_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
 
 class ConversationPage extends StatefulWidget {
@@ -9,6 +11,8 @@ class ConversationPage extends StatefulWidget {
 }
 
 class _ConversationPageState extends State<ConversationPage> {
+  final Room room = Room(roomCode: 'berlin');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +36,14 @@ class _ConversationPageState extends State<ConversationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SecondaryButton(onPressed: () {}, text: 'Share Room'),
+                SecondaryButton(onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (context) => ShareRoomPage(room: room),
+                    ),
+                  );
+                }, text: 'Share Room'),
               ],
             ),
           ),

@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:open_wearable/apps/bablefish/model/recording.dart';
 import 'package:open_wearable/apps/bablefish/view/recording_view.dart';
-
-// Placeholder for the Recording model.
-// This can be moved to its own file and fleshed out later.
-class Recording {
-  final String title;
-  final DateTime date;
-  final bool isFavourite;
-
-  Recording({
-    required this.title,
-    required this.date,
-    required this.isFavourite,
-  });
-}
 
 class RecordingTile extends StatelessWidget {
   final Recording recording;
