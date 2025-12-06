@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_wearable/apps/bablefish/model/room.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+// This Page is fully done
 class ShareRoomPage extends StatelessWidget {
   final Room room;
   const ShareRoomPage({super.key, required this.room});

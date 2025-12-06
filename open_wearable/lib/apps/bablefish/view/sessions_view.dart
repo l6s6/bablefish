@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_wearable/apps/bablefish/model/room.dart';
 import 'package:open_wearable/apps/bablefish/view/conversation_view.dart';
 import 'package:open_wearable/apps/bablefish/view/join_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/settings_view.dart';
@@ -13,6 +14,8 @@ class SessionsPage extends StatefulWidget {
 }
 
 class _SessionsPageState extends State<SessionsPage> {
+  final Room room = Room(roomCode: 'berlin');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +60,7 @@ class _SessionsPageState extends State<SessionsPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute<void>(
-                          builder: (context) => ConversationPage(),
+                          builder: (context) => ConversationPage(room: room,),
                         ),
                       );
                     },

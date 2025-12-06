@@ -4,15 +4,14 @@ import 'package:open_wearable/apps/bablefish/view/share_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
 
 class ConversationPage extends StatefulWidget {
-  const ConversationPage({super.key});
+  final Room room;
+  const ConversationPage({super.key, required this.room});
 
   @override
   State<ConversationPage> createState() => _ConversationPageState();
 }
 
 class _ConversationPageState extends State<ConversationPage> {
-  final Room room = Room(roomCode: 'berlin');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +28,8 @@ class _ConversationPageState extends State<ConversationPage> {
       ),
       body: Stack(
         children: <Widget>[
+          Center(child: Text('Joined Room: ${widget.room.roomCode}', style: TextStyle(fontSize: 30),),),
+
           Positioned(
             bottom: 125,
             left: 125,
@@ -40,10 +41,11 @@ class _ConversationPageState extends State<ConversationPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (context) => ShareRoomPage(room: room),
+                      builder: (context) => ShareRoomPage(room: widget.room),
                     ),
                   );
-                }, text: 'Share Room'),
+                }, text: 'Share Room',
+                ),
               ],
             ),
           ),
