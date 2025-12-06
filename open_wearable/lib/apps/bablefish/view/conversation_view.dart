@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:open_wearable/apps/bablefish/model/room.dart';
+import 'package:open_wearable/apps/bablefish/view/bablefish_view.dart';
 import 'package:open_wearable/apps/bablefish/view/share_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
+import 'package:open_wearable/apps/bablefish/view/widgets/leave_room_dialog.dart';
+import 'package:open_wearable/apps/widgets/apps_page.dart';
 
 class ConversationPage extends StatefulWidget {
   final Room room;
@@ -19,8 +22,26 @@ class _ConversationPageState extends State<ConversationPage> {
         title: const Text('Conversation'),
         actions: [
           IconButton(
-            onPressed: () => {
-              //TODO: leave conversation
+            onPressed: () async {
+              final bool? confirmed = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) => const LeaveRoomDialog(),
+              );
+              if (confirmed == true) {
+                // Push to APps page first to restore stack
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const AppsPage(),
+                  ),
+                );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const BablefishView(),
+                  ),
+                );
+              }
             },
             icon: const Icon(Icons.call_end),
           ),
@@ -28,8 +49,12 @@ class _ConversationPageState extends State<ConversationPage> {
       ),
       body: Stack(
         children: <Widget>[
-          Center(child: Text('Joined Room: ${widget.room.roomCode}', style: TextStyle(fontSize: 30),),),
-
+          Center(
+            child: Text(
+              'Joined Room: ${widget.room.roomCode}',
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
           Positioned(
             bottom: 125,
             left: 125,
@@ -37,14 +62,16 @@ class _ConversationPageState extends State<ConversationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SecondaryButton(onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => ShareRoomPage(room: widget.room),
-                    ),
-                  );
-                }, text: 'Share Room',
+                SecondaryButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => ShareRoomPage(room: widget.room),
+                      ),
+                    );
+                  },
+                  text: 'Share Room',
                 ),
               ],
             ),

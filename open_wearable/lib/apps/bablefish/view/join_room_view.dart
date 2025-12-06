@@ -39,11 +39,15 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
   }
 
   void _processCode(String code) {
-    Navigator.push(
+    // TODO Join Room
+    Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute<void>(
-        builder: (context) => ConversationPage(room: Room(roomCode: code),),
+        builder: (context) => ConversationPage(
+          room: Room(roomCode: code),
+        ),
       ),
+      (Route<dynamic> route) => false,
     );
   }
 
@@ -91,7 +95,10 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
                 Expanded(child: Divider()),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: Text('OR', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  child: Text(
+                    'OR',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Expanded(child: Divider()),
               ],
@@ -121,9 +128,11 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
               ),
             ),
             const SizedBox(height: 25),
-            PrimaryButton(onPressed: () {
-              _submitManualCode();
-            }, text: 'Join Room')
+            PrimaryButton(
+                onPressed: () {
+                  _submitManualCode();
+                },
+                text: 'Join Room')
           ],
         ),
       ),

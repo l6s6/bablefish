@@ -55,16 +55,19 @@ class _SessionsPageState extends State<SessionsPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 PrimaryButton(
-                    onPressed: () {
-                      //TODO: create Session
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) => ConversationPage(room: room,),
+                  onPressed: () {
+                    //TODO: create Session
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => ConversationPage(
+                          room: room,
                         ),
-                      );
-                    },
-                    text: 'Create Room',
+                      ),
+                      (Route<dynamic> route) => false,
+                    );
+                  },
+                  text: 'Create Room',
                 ),
                 const SizedBox(height: 30),
                 SecondaryButton(
