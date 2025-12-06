@@ -1,17 +1,3 @@
-# OpenEarable - App v2.0.0
-
-[OpenEarable](openearable.com) is the world's first fully open-source AI platform for ear-based sensing applications with true wireless audio. Packed with an unprecedented array of high-precision sensors, OpenEarable redefines what's possible in wearable tech. Designed for both development and research applications, OpenEarable is modular, reconfigurable, and built for the future.
-
-## Features
-- Connect to OpenEarable device
-- Configure the sensors
-- Control the audio 
-- Control the built-in LED
-- Show live data from the sensors
-- Provide a number of example applications
-    - Posture Tracker
-    - Recorder
-
 ## Getting Started
 To get started with the OpenEarable App, you need to have the following:
 - An OpenEarable device with the newest firmware
