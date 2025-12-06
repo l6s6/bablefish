@@ -4,7 +4,7 @@ import 'package:open_wearable/apps/bablefish/view/recordings_list_view.dart';
 import 'package:open_wearable/apps/bablefish/view/sessions_view.dart';
 
 class BablefishView extends StatefulWidget {
-  const BablefishView({Key? key}) : super(key: key);
+  const BablefishView({super.key});
 
   @override
   State<BablefishView> createState() => _BablefishViewState();

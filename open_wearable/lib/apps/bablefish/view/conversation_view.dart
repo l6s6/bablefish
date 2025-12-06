@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_wearable/apps/bablefish/view/share_room_view.dart';
+import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
 
 class ConversationPage extends StatefulWidget {
   const ConversationPage({super.key});
@@ -32,27 +32,7 @@ class _ConversationPageState extends State<ConversationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => ShareRoomPage(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[200],
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: Text(
-                    'Share Room',
-                    style: TextStyle(fontSize: 18, color: Colors.grey[800]),
-                  ),
-                ),
+                SecondaryButton(onPressed: () {}, text: 'Share Room'),
               ],
             ),
           ),

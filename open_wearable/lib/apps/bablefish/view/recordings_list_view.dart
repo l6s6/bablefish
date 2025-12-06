@@ -43,7 +43,7 @@ class _RecordingsListPageState extends State<RecordingsListPage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+        padding: EdgeInsets.fromLTRB(5, 10, 0, 10),
         child: ListView.builder(
           itemCount: _recordings.length,
           itemBuilder: (context, index) {

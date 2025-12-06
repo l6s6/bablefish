@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_wearable/apps/bablefish/view/widgets/button_primary.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -23,22 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    //TODO: save settings
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[800],
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
+                PrimaryButton(onPressed: () {}, text: 'Save'),
               ],
             ),
           ),

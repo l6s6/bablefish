@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:open_wearable/apps/bablefish/view/conversation_view.dart';
 import 'package:open_wearable/apps/bablefish/view/join_room_view.dart';
 import 'package:open_wearable/apps/bablefish/view/settings_view.dart';
+import 'package:open_wearable/apps/bablefish/view/widgets/button_primary.dart';
+import 'package:open_wearable/apps/bablefish/view/widgets/button_secondary.dart';
 
 class SessionsPage extends StatefulWidget {
   const SessionsPage({super.key});
@@ -49,31 +51,22 @@ class _SessionsPageState extends State<SessionsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    //TODO: create Session
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => ConversationPage(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[800],
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    'Create Room',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
+                PrimaryButton(
+                    onPressed: () {
+                      //TODO: create Session
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => ConversationPage(),
+                        ),
+                      );
+                    },
+                    text: 'Create Room',
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
+                SecondaryButton(
                   onPressed: () {
+                    //TODO: create Session
                     Navigator.push(
                       context,
                       MaterialPageRoute<void>(
@@ -81,17 +74,7 @@ class _SessionsPageState extends State<SessionsPage> {
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[200],
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: Text(
-                    'Join Room',
-                    style: TextStyle(fontSize: 18, color: Colors.grey[800]),
-                  ),
+                  text: 'Join Room',
                 ),
               ],
             ),

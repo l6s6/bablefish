@@ -178,6 +178,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         ),
         builder: (context) => GlobalAppBannerOverlay(
           child: PlatformApp(
+            debugShowCheckedModeBanner: false,
             navigatorKey: rootNavigatorKey,
             localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
               DefaultMaterialLocalizations.delegate,
