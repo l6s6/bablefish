@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_wearable/apps/bablefish/model/room.dart';
+import 'package:open_wearable/apps/bablefish/model/room_model.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 // This Page is fully done
@@ -25,8 +25,14 @@ class ShareRoomPage extends StatelessWidget {
               size: 250.0,
             ),
             SizedBox(height: 75),
-            const Text('Room Code', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
-            Text(room.roomCode.toUpperCase(), style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),),
+            const Text(
+              'Room Code',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              room.roomCode.toUpperCase(),
+              style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),

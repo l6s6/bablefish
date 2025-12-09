@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_wearable/apps/bablefish/model/recording.dart';
+import 'package:open_wearable/apps/bablefish/model/recording_model.dart';
 import 'package:open_wearable/apps/bablefish/view/settings_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/recording_tile.dart';
 
@@ -14,13 +14,21 @@ class _RecordingsListPageState extends State<RecordingsListPage> {
   final List<Recording> _recordings = [
     Recording(
       title: "Talk with Jan",
+      partnerName: "Jan",
       date: DateTime(2025, 12, 05, 12, 14),
       isFavourite: true,
+      transcript: "This is a transcript",
+      audioFilePath: "path/to/audio/file",
+      duration: 25,
     ),
     Recording(
       title: "Talk with Lukas",
+      partnerName: "Lukas",
       date: DateTime(2023, 12, 06, 13, 10),
       isFavourite: false,
+      transcript: "This is a transcript",
+      audioFilePath: "path/to/audio/file",
+      duration: 10,
     ),
   ];
 

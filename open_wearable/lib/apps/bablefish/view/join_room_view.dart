@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:open_wearable/apps/bablefish/model/room.dart';
+import 'package:open_wearable/apps/bablefish/model/room_model.dart';
 import 'package:open_wearable/apps/bablefish/view/conversation_view.dart';
 import 'package:open_wearable/apps/bablefish/view/widgets/button_primary.dart';
 
@@ -70,7 +70,7 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Scanner-Fenster
             Container(
@@ -123,16 +123,15 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
                 ),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.clear),
-                  onPressed: () => _manualController.clear(),
+                  onPressed: _manualController.clear,
                 ),
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 50),
             PrimaryButton(
-                onPressed: () {
-                  _submitManualCode();
-                },
-                text: 'Join Room')
+              onPressed: _submitManualCode,
+              text: 'Join Room',
+            )
           ],
         ),
       ),

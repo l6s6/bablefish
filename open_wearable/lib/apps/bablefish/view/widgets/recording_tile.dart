@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:open_wearable/apps/bablefish/model/recording.dart';
+import 'package:open_wearable/apps/bablefish/model/recording_model.dart';
 import 'package:open_wearable/apps/bablefish/view/recording_view.dart';
 
 class RecordingTile extends StatelessWidget {
@@ -12,9 +12,11 @@ class RecordingTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformListTile(
-      title: PlatformText(recording.title),
-      subtitle:
-          PlatformText(DateFormat("MMM dd, yyyy HH:mm").format(recording.date)),
+      title: Text(recording.title),
+      subtitle: Text(
+        DateFormat("MMM dd, yyyy HH:mm").format(recording.date),
+        style: TextStyle(color: Colors.grey[600]),
+      ),
       leading: const Icon(Icons.mic),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:open_earable_flutter/open_earable_flutter.dart' hide logger;
@@ -116,7 +117,9 @@ class BluetoothAutoConnector {
 
     if (_targetNames.isNotEmpty) {
       _setupScanListener();
-      await wearableManager.startScan(excludeUnsupported: false);
+      //Entwert wegen Fehler
+      //await wearableManager.startScan(excludeUnsupported: false);
+      await wearableManager.startScan();
     }
   }
 

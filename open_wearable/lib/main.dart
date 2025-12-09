@@ -1,8 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:open_earable_flutter/open_earable_flutter.dart' hide logger;
+import 'package:open_wearable/apps/bablefish/services/user_settings_storage_service.dart';
+import 'package:open_wearable/apps/bablefish/view_model/bablefish_view_model.dart';
 import 'package:open_wearable/models/log_file_manager.dart';
 import 'package:open_wearable/models/wearable_connector.dart';
 import 'package:open_wearable/view_models/sensor_recorder_provider.dart';
@@ -25,6 +28,9 @@ void main() async {
   initOpenWearableLogger(logFileManager.libLogger);
   initLogger(logFileManager.logger);
 
+  // Load UserSettings at startup
+  final userSettings = await UserSettingsStorageService().loadSettings();
+
   runApp(
     MultiProvider(
       providers: [
@@ -40,6 +46,8 @@ void main() async {
           create: (context) => AppBannerController(),
         ),
         ChangeNotifierProvider.value(value: logFileManager),
+        ChangeNotifierProvider(
+            create: (context) => BablefishViewModel(userSettings)),
       ],
       child: const MyApp(),
     ),
@@ -170,7 +178,19 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       builder: (context) => PlatformTheme(
         materialLightTheme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blue,
+          ),
+          sliderTheme: SliderThemeData(
+            trackHeight: 20,
+            inactiveTickMarkColor: Colors.grey[200],
+            activeTickMarkColor: Colors.grey[800],
+            activeTrackColor: Colors.grey[800],
+            inactiveTrackColor: Colors.grey[200],
+            thumbColor: Colors.grey[800],
+            year2023: false,
+            showValueIndicator: ShowValueIndicator.onDrag,
+          ),
           cardTheme: const CardThemeData(
             color: Colors.white,
             elevation: 0,
